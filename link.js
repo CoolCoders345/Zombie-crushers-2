@@ -1,16 +1,20 @@
 class Link{
-    constructor(bodyA, bodyB){
-        var lastLink = bodyA.body.bodies.length-2
-        var options = {
-            bodyA: bodyA.body.bodies[lastLink],
-            bodyB:bodyB,
-            length:-10,
-            stiffness:0.01
-        }
-        this.link = Constraint.create(options)
-        World.add(world, this.link)
-    }
-    show(){
-
-    }
+    constructor(bodyA,bodyB)
+    {
+      var lastlink = bodyA.body.bodies.length-2;
+     this.link = Constraint.create(
+        {
+          bodyA:bodyA.body.bodies[lastlink],
+          pointA:{x:0,y:0},
+          bodyB:bodyB,
+          pointB:{x:0,y:0},
+          length:-10,
+          stiffness:0.01
+        });
+        World.add(engine.world,this.link);
+    } 
+detach(){
+World.remove(world, this.link)
 }
+}
+
